@@ -1,7 +1,11 @@
-@(message: String)
+@(newForm: Form[String])
 
-@main("Welcome to Play 2.0") {
-    
-    @play20.welcome(message)
-    
+@import helper._
+
+@main("Get page statistics") {
+  <h1>Get page statistic</h1>
+  @form(routes.Application.getPage) {
+    @inputText(newForm("label"))
+    <input type="submit" value="Show Statistics">
+  }
 }
