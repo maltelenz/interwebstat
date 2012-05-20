@@ -1,3 +1,0 @@
-package models
-
-case class PageStatistic(id: Long, label: String)
