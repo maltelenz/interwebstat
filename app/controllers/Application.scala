@@ -1,11 +1,11 @@
 package controllers
 
-import play.api._
-import play.api.mvc._
-import play.api.data._
-import play.api.data.Forms._
-
-import models.PageStatistic
+import play.api.data.Forms.nonEmptyText
+import play.api.data.Form
+import play.api.mvc.Action
+import play.api.mvc.Controller
+import play.cache.Cache
+import utils.Hash
 
 object Application extends Controller {
 
@@ -21,13 +21,13 @@ object Application extends Controller {
     newForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(errors)),
       label => {
-        PageStatistic.create(label)
-        //TODO: replace 1 with real value
-        Redirect(routes.Application.showResult(1))
+        val hash = Hash.md5(label)
+        Cache.set(hash, label)
+        Redirect(routes.Application.showResult(hash))
       }
     )
   }
 
-  def showResult(id: Long) = TODO
+  def showResult(id: String) = TODO
 
 }

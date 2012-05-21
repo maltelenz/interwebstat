@@ -9,7 +9,7 @@ GET     /                           controllers.Application.index
 POST    /new                        controllers.Application.getPage
 
 # Result page
-GET     /show/:id                   controllers.Application.showResult(id: Long)
+GET     /show/:hash                   controllers.Application.showResult(hash: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
