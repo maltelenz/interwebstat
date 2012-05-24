@@ -1,7 +1,7 @@
 package models
 
-case class PageStatistic(id: Long, label: String)
+case class PageStatistic(hash: String, pageURI: String)
 
 object PageStatistic {
-  def create(label: String) {}
+
 }

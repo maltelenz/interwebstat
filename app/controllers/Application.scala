@@ -4,8 +4,10 @@ import play.api.data.Forms.nonEmptyText
 import play.api.data.Form
 import play.api.mvc.Action
 import play.api.mvc.Controller
-import play.cache.Cache
 import utils.Hash
+import models.PageStatistic
+import play.api.cache.Cache
+import play.api.Play.current
 
 object Application extends Controller {
 
@@ -28,6 +30,10 @@ object Application extends Controller {
     )
   }
 
-  def showResult(id: String) = TODO
+  def showResult(hash: String) = Action {
+	val pageURI = Cache.getAs[String](hash)
+    var pageStat = new PageStatistic(hash, pageURI.get)
+    Ok(views.html.result(pageStat))
+  }
 
 }
