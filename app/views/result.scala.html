@@ -4,5 +4,14 @@
 
 @main("Page statistics") {
   <h1>Page statistic</h1>
-  <div>@pageStat.pageURI</div>
+  <table>
+    <tr>
+      <td>URL</td>
+      <td>@pageStat.url</td>
+    </tr>
+    <tr>
+      <td>HTML string length</td>
+      <td>@pageStat.strLen</td>
+    </tr>
+  </table>
 }
