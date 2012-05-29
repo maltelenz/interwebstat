@@ -5,7 +5,8 @@
 @main("Get page statistics") {
   <h1>Get page statistic</h1>
   @form(routes.Application.getPage) {
-    @inputText(newForm("label"))
+    URL: <input type="text" name="label" id="label">
+
     <input type="submit" value="Show Statistics">
   }
 }
