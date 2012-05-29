@@ -12,7 +12,7 @@ import play.api.Play.current
 object Application extends Controller {
 
   val newForm = Form(
-    "label" -> nonEmptyText
+    "url" -> nonEmptyText
   )
   
   def index = Action {
@@ -22,9 +22,9 @@ object Application extends Controller {
   def getPage = Action { implicit request =>
     newForm.bindFromRequest.fold(
       errors => BadRequest(views.html.index(errors)),
-      label => {
-        val hash = Hash.md5(label)
-        Cache.set(hash, label)
+      url => {
+        val hash = Hash.md5(url)
+        Cache.set(hash, url)
         Redirect(routes.Application.showResult(hash))
       }
     )
