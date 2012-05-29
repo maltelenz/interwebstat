@@ -12,7 +12,7 @@ case class PageStatistic(hash: String, pageURI: String) {
 
 object PageStatistic {
   def handlePageURI(url:String) = { 
-    val httppattern = "http(?:s)+://(.*)".r
+    val httppattern = "http(?:s)?://(.*)".r
     url match {
         case httppattern(x) => url
         case y:String => ("http://" + y)
