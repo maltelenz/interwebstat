@@ -7,4 +7,5 @@ case class PageStatistic(hash: String, pageURI: String) {
   var doc: Document = Jsoup.connect(url).get()
   val strLen = doc.outerHtml().length()
   val urlLen = url.length()
+  val title = doc.title()
 }
