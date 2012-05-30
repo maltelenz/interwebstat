@@ -8,6 +8,40 @@
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
         <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
+        
+        <script>
+          $(document).ready(function() {
+          
+          // Define what happens when the textbox comes under focus
+          // Remove the watermark class and clear the box
+          $("#url").focus(function() {
+          
+          $(this).filter(function() {
+          
+          // We only want this to apply if there's not 
+          // something actually entered
+          return $(this).val() == "" || $(this).val() == "URL..."
+          
+          }).removeClass("watermarked").val("");
+          
+          });
+          
+          // Define what happens when the textbox loses focus
+          // Add the watermark class and default text
+          $("#url").blur(function() {
+          
+          $(this).filter(function() {
+          
+          // We only want this to apply if there's not
+          // something actually entered
+          return $(this).val() == ""
+          
+          }).addClass("watermarked").val("URL...");
+          
+          });
+          
+          });
+        </script>
     </head>
     <body>
         @content
