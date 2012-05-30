@@ -3,23 +3,30 @@
 @import helper._
 
 @main("Page statistics") {
-  <h1>Page statistic</h1>
-  <table>
-    <tr>
-      <td>URL</td>
-      <td>@pageStat.url</td>
-    </tr>
-    <tr>
-      <td>URL string length</td>
-      <td>@pageStat.urlLen</td>
-    </tr>
-    <tr>
-      <td>HTML string length</td>
-      <td>@pageStat.strLen</td>
-    </tr>
-    <tr>
-      <td>Page title</td>
-      <td>@pageStat.title</td>
-    </tr>
-  </table>
+  <div class="toplinks toplinksresult">
+    <a href="#">About</a>
+  </div>
+  <div class="resultmaincontent">
+    <h1 class="result">Page statistic</h1>
+    <hr class="header" />
+    <table>
+      <tr>
+        <td>URL</td>
+        <td>@pageStat.url</td>
+      </tr>
+      <tr>
+        <td>URL string length</td>
+        <td>@pageStat.urlLen</td>
+      </tr>
+      <tr>
+        <td>HTML string length</td>
+        <td>@pageStat.strLen</td>
+      </tr>
+      <tr>
+        <td>Page title</td>
+        <td>@pageStat.title</td>
+      </tr>
+    </table>
+  </div>
+  
 }

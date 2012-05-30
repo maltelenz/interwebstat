@@ -3,10 +3,19 @@
 @import helper._
 
 @main("Get page statistics") {
-  <h1>Get page statistic</h1>
-  @form(routes.Application.getPage) {
-    URL: <input type="text" name="url" id="url">
+  <div class="toplinks toplinkshome">
+    <a href="#">About</a>
+  </div>
+  <div class="firstpagemaincontent">
+    <h1 class="firstpage">Get page statistics</h1>
+    <hr class="header" />
+    <div class="firstpagetext">
+      Get information about a web page. Start by entering an address in the box below.
+    </div>
+    @form(routes.Application.getPage) {
+      <input type="text" name="url" id="url" class="inputfirstpage">
 
-    <input type="submit" value="Show Statistics">
-  }
+      <input type="submit" value="Show Statistics" class="firstpagesubmit">
+    }
+  </div>
 }

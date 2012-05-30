@@ -1,0 +1,133 @@
+html {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: #6bb7f1;
+    font-family: verdana;
+    font-size: 13px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h2 {
+    font-family: arial;
+}
+
+div.toplinks {
+    text-align: right;
+    color: #333;
+    font-weight: bold;
+    font-family: verdana;
+    font-size: 13px;
+    text-shadow: 1px 1px 2px #6bb7f1;
+}
+
+div.toplinks a {
+    text-decoration: underline;
+}
+
+div.toplinkshome {
+    width: 700px;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+div.firstpagemaincontent {
+    width: 650px;
+    padding: 50px;
+    padding-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #EFEFEF;
+    border: 1px solid #2e37e8;
+    -moz-box-shadow: 0px 0px 5px #888;
+    -webkit-box-shadow: 0px 0px 5px #888;
+    box-shadow: 0px 0px 5px #888;
+    font-family: verdana;
+    font-size: 13px;
+}
+
+h1.firstpage {
+    color: #000;
+    margin: 0px;
+    font-family: verdana;
+}
+
+h1.firstpage img.logo {
+    padding-right: 10px;
+    vertical-align: middle;
+}
+
+hr.header {
+    color: #CCC;
+    border-width: 0px;
+    height: 1px;
+    background-color: #CCC;
+    
+}
+
+div.firstpagetext {
+    padding: 15px 10px 10px 0px;
+}
+
+.inputfirstpage {
+    border: 3px double #2e37e8;
+    background-color: #b4deff;
+    font-size: 20px;
+    padding: 5px;
+    font-weight: bold;
+    -moz-box-shadow: 0px 0px 2px #888;
+    -webkit-box-shadow: 0px 0px 2px #888;
+    box-shadow: 0px 0px 2px #888;
+    width: 300px;
+}
+
+.watermarked {
+    color: #999;
+}
+
+.firstpagesubmit {
+    font-size: 20px;
+    padding: 7px 15px 7px 15px;
+    font-weight: bold;
+    font-color: #236a16;
+    border: 1px solid #2e37e8;
+    background-color: #DDD;
+    border-radius: 2px; 
+    -moz-border-radius: 2px; 
+    -webkit-border-radius: 2px; 
+    text-shadow: 1px 1px 0px #FFF;
+    -moz-box-shadow: 0px 0px 2px #888;
+    -webkit-box-shadow: 0px 0px 2px #888;
+    box-shadow: 0px 0px 2px #888;
+}
+
+
+div.toplinksresult {
+    margin: 50px 55px 5px 50px;
+}
+
+div.resultmaincontent {
+    padding: 20px;
+    margin: 0px 50px 50px 50px;
+    background-color: #EFEFEF;
+    border: 1px solid #2e37e8;
+    -moz-box-shadow: 0px 0px 5px #888;
+    -webkit-box-shadow: 0px 0px 5px #888;
+    box-shadow: 0px 0px 5px #888;
+}
+
+h1.result {
+    color: #000;
+    margin: 0px;
+    font-family: verdana;
+}
