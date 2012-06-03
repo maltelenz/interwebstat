@@ -1,6 +1,7 @@
 package models
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
+import collection.JavaConversions._
 
 case class PageStatistic(hash: String, pageURI: String) {
   val url = PageStatistic.handlePageURI(pageURI)
@@ -8,6 +9,10 @@ case class PageStatistic(hash: String, pageURI: String) {
   val strLen = doc.outerHtml().length()
   val urlLen = url.length()
   val title = doc.title()
+  val nrA = doc.getElementsByTag("a").size();
+  val nrTags = doc.getAllElements().size();
+  val tagHistogram = for(tag <- (doc.getAllElements().map(s => s.tagName()) groupBy identity))
+	  						yield (tag._1, tag._2.length)
 }
 
 object PageStatistic {

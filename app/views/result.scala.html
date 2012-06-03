@@ -15,6 +15,10 @@
         <td>@pageStat.url</td>
       </tr>
       <tr>
+        <td>Page title</td>
+        <td>@pageStat.title</td>
+      </tr>
+      <tr>
         <td>URL string length</td>
         <td>@pageStat.urlLen</td>
       </tr>
@@ -23,9 +27,22 @@
         <td>@pageStat.strLen</td>
       </tr>
       <tr>
-        <td>Page title</td>
-        <td>@pageStat.title</td>
+        <td>Number of HTML tags</td>
+        <td>@pageStat.nrTags</td>
       </tr>
+      <tr>
+        <td>Number of links</td>
+        <td>@pageStat.nrA</td>
+      </tr>
+      <tr>
+        <td>Histogram</td>
+      </tr>
+      @pageStat.tagHistogram.map { case (tag, tagNr) => 
+          <tr>
+            <td>@tag</td>
+            <td>@tagNr</td>
+          </tr>
+      }
     </table>
   </div>
   
