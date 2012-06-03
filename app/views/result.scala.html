@@ -3,6 +3,42 @@
 @import helper._
 
 @main("Page statistics") {
+    <script type="text/javascript">
+        $(document).ready(function() {
+            // Draw the graph:
+            graph = Flotr.draw(
+                //Container element
+                document.getElementById("tagHistogramDiv"),
+                //Array of data series
+                [[
+                    @pageStat.tagHistogram.zipWithIndex.map { case ((tag, tagNr), i) => 
+                        [@tagNr, @i],
+                    }
+                ]]
+                ,
+                //Options
+                {
+                    title : "HTML Tags",
+                    bars : {
+                        show : true,
+                        horizontal : true,
+                        shadowSize : 0,
+                        barWidth : 0.8
+                    },
+                    xaxis : {
+                        min : 0,
+                        autoscaleMargin : 1
+                    },
+                    yaxis : {
+                        ticks: [@pageStat.tagHistogram.zipWithIndex.map { case ((tag, tagNr), i) => 
+                            [@i, "@tag"],
+                        }]
+                    }
+                }
+            );
+        });
+    </script>
+}{
   <div class="toplinks toplinksresult">
     <a href="#">About</a>
   </div>
@@ -34,16 +70,9 @@
         <td>Number of links</td>
         <td>@pageStat.nrA</td>
       </tr>
-      <tr>
-        <td>Histogram</td>
-      </tr>
-      @pageStat.tagHistogram.map { case (tag, tagNr) => 
-          <tr>
-            <td>@tag</td>
-            <td>@tagNr</td>
-          </tr>
-      }
     </table>
+
+    <div id="tagHistogramDiv" style="width: 300px; height: 300px;"></div>
   </div>
   
 }

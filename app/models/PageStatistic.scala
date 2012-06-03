@@ -11,8 +11,8 @@ case class PageStatistic(hash: String, pageURI: String) {
   val title = doc.title()
   val nrA = doc.getElementsByTag("a").size();
   val nrTags = doc.getAllElements().size();
-  val tagHistogram = for(tag <- (doc.getAllElements().map(s => s.tagName()) groupBy identity))
-	  						yield (tag._1, tag._2.length)
+  val tagHistogram = ((for(tag <- (doc.getAllElements().map(s => s.tagName()) groupBy identity))
+	  						yield (tag._1, tag._2.length)).toList sortWith (_._2 > _._2) take 10) reverse
 }
 
 object PageStatistic {
