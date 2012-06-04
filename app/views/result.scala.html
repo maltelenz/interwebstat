@@ -5,7 +5,7 @@
 @main("Page statistics") {
     <script type="text/javascript">
         $(document).ready(function() {
-            // Draw the graph:
+            // Draw tag histogram:
             graph = Flotr.draw(
                 //Container element
                 document.getElementById("tagHistogramDiv"),
@@ -36,6 +36,37 @@
                     }
                 }
             );
+            // Draw char histogram:
+            graphChar = Flotr.draw(
+                //Container element
+                document.getElementById("charHistogramDiv"),
+                //Array of data series
+                [[
+                    @pageStat.charHistogram.zipWithIndex.map { case ((char, charNr), i) => 
+                        [@charNr, @i],
+                    }
+                ]]
+                ,
+                //Options
+                {
+                    title : "Characters",
+                    bars : {
+                        show : true,
+                        horizontal : true,
+                        shadowSize : 0,
+                        barWidth : 0.8
+                    },
+                    xaxis : {
+                        min : 0,
+                        autoscaleMargin : 1
+                    },
+                    yaxis : {
+                        ticks: [@pageStat.charHistogram.zipWithIndex.map { case ((char, charNr), i) => 
+                            [@i, "'@char'"],
+                        }]
+                    }
+                }
+            );
         });
     </script>
 }{
@@ -55,6 +86,10 @@
         <td>@pageStat.title</td>
       </tr>
       <tr>
+        <td>Domain</td>
+        <td>@pageStat.domain</td>
+      </tr>
+      <tr>
         <td>URL string length</td>
         <td>@pageStat.urlLen</td>
       </tr>
@@ -68,11 +103,12 @@
       </tr>
       <tr>
         <td>Number of links</td>
-        <td>@pageStat.nrA</td>
+        <td>@pageStat.nrA (@pageStat.nrAExternal external)</td>
       </tr>
     </table>
 
     <div id="tagHistogramDiv" style="width: 300px; height: 300px;"></div>
+    <div id="charHistogramDiv" style="width: 300px; height: 300px;"></div>
   </div>
   
 }
